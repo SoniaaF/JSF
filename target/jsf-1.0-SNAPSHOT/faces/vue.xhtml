@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <ui:composition template="templates/layout.xhtml"
+                    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                    xmlns:h="http://xmlns.jcp.org/jsf/html">
+        <ui:define name="contenu">
+
+            <h:form id="form">
+                <h:panelGrid columns="2">
+                    <p:outputLabel for="comboCouleur" value="Couleur : "/>
+                    <p:selectOneMenu id="comboCouleur" value="#{myBean.couleurSelected}">
+                        <f:ajax render="couleurChoisie"
+                        />
+                        <f:selectItems value="#{myBean.couleursList}"/>
+                        <f:converter converterId="couleurConverter"/>
+                    </p:selectOneMenu>
+                </h:panelGrid>
+                <h:outputText id="couleurChoisie" value="Couleur choisie : #{myBean.couleurSelected}"/>
+                <h:panelGrid columns="2">
+                    <h:outputLabel for="region">Région : </h:outputLabel>
+                    <p:selectOneMenu dynamic="true" id="region"
+                                     value="#{myBean.regionSelected}"
+                                     widgetVar="cbRegion">
+                        <p:ajax listener="#{myBean.onRegionChange}" update="departement"/>
+                        <f:converter converterId="regionConverter"/>
+                        <f:selectItems value="#{myBean.regionList}"
+                                       var="region"/>
+                    </p:selectOneMenu>
+
+                    <h:outputLabel for="departement">Département : </h:outputLabel>
+                    <p:selectOneMenu id="departement"
+                                     dynamic="true"
+                                     value="#{myBean.departementSelected}"
+                                     widgetVar="cbDepartement">
+                        <f:converter converterId="departementConverter"/>
+                        <f:selectItems value="#{myBean.departementList}"
+                                       var="departement"/>
+                    </p:selectOneMenu>
+                </h:panelGrid>
+
+                <p:commandButton value="Valider" action="#{myBean.valider}" ajax="false"/>
+
+            </h:form>
+
+
+        </ui:define>
+    </ui:composition>
+</f:view>
+</html>
+
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <h:outputStylesheet library="css" name="template.css"/>
+    <title>
+        <ui:insert name="titre">Titre de la page</ui:insert>
+    </title>
+</h:head>
+<h:body>
+    <div id="page">
+        <div id="header">
+            <ui:insert name="menu">
+                <ui:include src="menu.xhtml"/>
+            </ui:insert>
+        </div>
+        <div id="content" style="margin: 2%">
+            <ui:insert name="contenu">
+                <ui:include src="contenu.xhtml"/>
+            </ui:insert>
+        </div>
+        <div id="footer">
+            <ui:insert name="pied">
+                <ui:include src="pied.xhtml"/>
+            </ui:insert>
+        </div>
+    </div>
+</h:body>
+</html>
+
+
+

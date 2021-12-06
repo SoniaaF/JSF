@@ -1,0 +1,52 @@
+body {
+  height: 98%;
+  background-color: black;
+}
+
+#page{
+  height: 96%;
+  background-color: lightgrey;
+}
+#header,#content,#footer{
+  left: 3%;
+  right: 3%;
+  opacity: 0.75;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px black;
+}
+#header
+{
+  position: fixed;
+  flex-direction: row;
+  background-color: lightsalmon;
+  height: 10%;
+}
+
+#content
+{
+  position: fixed;
+  background-color: lightyellow;
+  top: 10%;
+  bottom: 6%;
+  height: 76%;
+}
+
+#footer
+{
+  position: fixed;
+  background-color: lightskyblue;
+  height: 6%;
+  bottom: 1%;
+}
+
+label {
+  display: inline-block;
+  text-align: right;
+  margin: .5rem;
+}
+input{
+  margin: .5rem;
+}
