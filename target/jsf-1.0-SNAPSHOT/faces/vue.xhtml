@@ -12,17 +12,48 @@
         <ui:define name="contenu">
 
             <h:form id="form">
+                <!-- Box couleur -->
                 <h:panelGrid columns="2">
                     <p:outputLabel for="comboCouleur" value="Couleur : "/>
                     <p:selectOneMenu id="comboCouleur" value="#{myBean.couleurSelected}">
-                        <f:ajax render="couleurChoisie"
-                        />
+                        <f:ajax render="couleurChoisie"/>
                         <f:selectItems value="#{myBean.couleursList}"/>
                         <f:converter converterId="couleurConverter"/>
                     </p:selectOneMenu>
                 </h:panelGrid>
                 <h:outputText id="couleurChoisie" value="Couleur choisie : #{myBean.couleurSelected}"/>
+                <!-- Box Type -->
                 <h:panelGrid columns="2">
+                    <p:outputLabel for="comboType" value="Type : "/>
+                    <p:selectOneMenu id="comboType" value="#{myBean.typeSelected}">
+                        <f:ajax render="typeChoisie" />
+                        <f:selectItems value="#{myBean.typeList}"/>
+                        <f:converter converterId="typeConverter"/>
+                    </p:selectOneMenu>
+                </h:panelGrid>
+                <h:outputText id="typeChoisie" value="Type choisie : #{myBean.typeSelected}"/>
+                <!-- Box marque -->
+                <h:panelGrid columns="2">
+                    <p:outputLabel for="comboMarque" value="Marque : "/>
+                    <p:selectOneMenu id="comboMarque" value="#{myBean.marqueSelected}">
+                        <f:ajax render="marqueChoisie" />
+                        <f:selectItems value="#{myBean.marqueList}"/>
+                        <f:converter converterId="marqueConverter"/>
+                    </p:selectOneMenu>
+                </h:panelGrid>
+                <h:outputText id="marqueChoisie" value="Marque choisie : #{myBean.marqueSelected}"/>
+                <!-- Box fabricant -->
+                <h:panelGrid columns="2">
+                    <p:outputLabel for="comboFabricant" value="Fabricant : "/>
+                    <p:selectOneMenu id="comboFabricant" value="#{myBean.fabricantSelected}">
+                        <f:ajax render="fabricantChoisie" />
+                        <f:selectItems value="#{myBean.fabricantList}"/>
+                        <f:converter converterId="fabricantConverter"/>
+                    </p:selectOneMenu>
+                </h:panelGrid>
+                <h:outputText id="fabricantChoisie" value="Fabricant choisie : #{myBean.fabricantSelected}"/>
+                <h:panelGrid columns="2">
+                    
                     <h:outputLabel for="region">Région : </h:outputLabel>
                     <p:selectOneMenu dynamic="true" id="region"
                                      value="#{myBean.regionSelected}"
