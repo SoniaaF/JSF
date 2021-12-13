@@ -31,16 +31,20 @@ public class MyBean implements Serializable {
     @PostConstruct
     private void init() {
         couleurList = new ArrayList<>(DaoFactory.getCouleurDAO().getAll());
+        couleurList.add(0, new Couleur(0, "Choisir une couleur"));
         typeList = new ArrayList<>(DaoFactory.getTypeDAO().getAll());
+        typeList.add(0, new Type(0, "Choisir un type"));
         marqueList = new ArrayList<>(DaoFactory.getMarqueDAO().getAll());
+        marqueList.add(0, new Marque(0, "Choisir une marque"));
         fabricantList = new ArrayList<>(DaoFactory.getFabricantDAO().getAll());
+        fabricantList.add(0, new Fabricant(0, "Choisir un fabricant"));
         regionList = new ArrayList<>(DaoFactory.getRegionDAO().getAll());
         regionList.add(0, new Region("X", "Choisir une Région"));
         allDepartements = new ArrayList<>(DaoFactory.getDepartementDao().getAll());
         allDepartements.add(0, new Departement("X", "Choisir un Département"));
         departementList = new ArrayList<>(allDepartements);
     }
-
+    // Couleur
     public List<Couleur> getCouleursList() {
         return couleurList;
     }
@@ -53,24 +57,31 @@ public class MyBean implements Serializable {
         this.couleurSelected = couleurSelected;
     }
 
+    // Type
     public List<Type> getTypeList() { return typeList; }
 
     public Type getTypeSelected() { return typeSelected; }
 
     public void setTypeSelected(Type typeSelected) { this.typeSelected = typeSelected; }
 
+
+    // Marque
     public List<Marque> getMarqueList() { return marqueList; }
 
     public Marque getMarqueSelected() { return marqueSelected; }
 
     public void setMarqueSelected(Marque marqueSelected) { this.marqueSelected = marqueSelected; }
 
+
+    // Fabricant
     public List<Fabricant> getFabricantList() { return fabricantList; }
 
     public Fabricant getFabricantSelected() { return fabricantSelected; }
 
     public void setFabricantSelected(Fabricant fabricantSelected) { this.fabricantSelected = fabricantSelected; }
 
+
+    // Région
     public List<Region> getRegionList() {
         return regionList;
     }
@@ -83,6 +94,8 @@ public class MyBean implements Serializable {
         this.regionSelected = regionSelected;
     }
 
+
+    // Département
     public List<Departement> getAllDepartements() {
         return allDepartements;
     }

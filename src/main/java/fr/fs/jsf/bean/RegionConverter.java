@@ -10,9 +10,6 @@ import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
 
-/**
- * Created by François on 30/03/2017.
- */
 @FacesConverter(value = "regionConverter", managed = true)
 public class RegionConverter implements Converter {
 
